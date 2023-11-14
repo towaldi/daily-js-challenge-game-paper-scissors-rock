@@ -1,10 +1,8 @@
 const computerOptions = ['paper', 'scissors', 'rock'];
-
+const computersChoice = document.querySelector('.computer-choice');
 const userBtns = document.querySelectorAll('.btn');
 console.log(userBtns);
 
-
-let randomNumber = [];
 
 /**
  * Checks which button is clicked by the user
@@ -13,6 +11,10 @@ let randomNumber = [];
 userBtns.forEach(btn => {
     btn.addEventListener('click', function() {
         console.log(btn);
+        
+        const randomNumber = generateRandomNumber();
+        computersChoice.textContent = computerOptions[randomNumber];
+        console.log(randomNumber);
     });
 });
 
@@ -22,9 +24,5 @@ userBtns.forEach(btn => {
  */
 
 function generateRandomNumber() {
-    let number =  Math.floor(Math.random() * computerOptions.length);
-    randomNumber.push(number);
+    return Math.floor(Math.random() * computerOptions.length);
 }
-
-generateRandomNumber();
-console.log(randomNumber);
