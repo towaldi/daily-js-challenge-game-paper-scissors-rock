@@ -1,8 +1,11 @@
-const computerOptions = ['paper', 'scissors', 'rock'];
+const computerOptions = [
+    './assets/icons/hand_paper.svg', 
+    './assets/icons/hand_scissors.svg', 
+    './assets/icons/hand_rock.svg'];
+
 const computersChoice = document.querySelector('.computer-choice');
 const playersChoice = document.querySelector('.player-choice');
 const userBtns = document.querySelectorAll('.btn');
-console.log(userBtns);
 
 
 /**
@@ -16,11 +19,11 @@ userBtns.forEach(btn => {
         const generatedNumber = generateNumberForBtn(btn);
         const randomNumber = generateRandomNumber();
         
-        playersChoice.textContent = computerOptions[generatedNumber];
-        console.log(generatedNumber);
-        computersChoice.textContent = computerOptions[randomNumber];
-        console.log(randomNumber);
-        
+        playersChoice.innerHTML = /* html */ `<img src="${computerOptions[generatedNumber]}" alt="Player's Choice">`;
+        // console.log(generatedNumber);
+        computersChoice.innerHTML = /* html */ `<img src="${computerOptions[randomNumber]}" alt="Computer's Choice">`;
+        // console.log(randomNumber);
+
         console.log(compareNumbers(generatedNumber, randomNumber))
     });
 });

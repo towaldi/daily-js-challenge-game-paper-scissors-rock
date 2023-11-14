@@ -76,6 +76,16 @@ main {
     border-radius: 1rem;
 }
 
+.computer-choice,
+.player-choice {
+    /* display & box model */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 10rem;
+}
+
 .player-options {
     /* display & box model */
     display: flex;
