@@ -30,19 +30,18 @@ userBtns.forEach(btn => {
         const generatedNumber = generateNumberForBtn(btn);
         const randomNumber = generateRandomNumber();
 
-        compareNumbers(generatedNumber, randomNumber)
+        compareNumbers(generatedNumber, randomNumber);
+
         playersChoice.innerHTML = /* html */ `<img src="${computerOptions[generatedNumber]}" alt="Player's Choice">`;
         computersChoice.innerHTML = /* html */ `<img src="${computerOptions[randomNumber]}" alt="Computer's Choice">`;
 
         comparisonText.innerHTML = text;
         numberPlayer.innerHTML = counterPlayer;
         numberComputer.innerHTML = counterComputer;
-        
-        console.log(comparisonText);   
 
         setTimeout(() => {
             modal.classList.remove('d-none');
-        }, 1500);
+        }, 1000);
     });
 });
 
@@ -73,6 +72,7 @@ function generateRandomNumber() {
 
 /**
  * Compare computer choice with player choice
+ * return -> text + counter player or counter computer
  */
 
 function compareNumbers(num1, num2) {
@@ -106,8 +106,10 @@ function compareNumbers(num1, num2) {
 
 function resetGame() {
     modal.classList.add('d-none');
+
     playersChoice.innerHTML = '';
     computersChoice.innerHTML = '';
+
     counterPlayer = 0;
     counterComputer = 0;
 }
@@ -119,6 +121,7 @@ function resetGame() {
 
 function continueGame() {
     modal.classList.add('d-none');
+
     playersChoice.innerHTML = '';
     computersChoice.innerHTML = '';
 }
