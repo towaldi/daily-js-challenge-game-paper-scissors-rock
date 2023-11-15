@@ -55,23 +55,23 @@
         <div class="modal-bgr d-none">
             <div class="modal-overlay">
                 <div class="modal-header">
-                    <h1>Modal Header</h1>
-                    <p><span id="comparison-text">This is a placeholder</span><br>Here is the scoreboard:</p>
+                    <h1 id="comparison-text">Modal Header</h1>
+                    <p>Here is the actual scoreboard:</p>
                 </div>
                 <!-- counter -->
                 <div class="row-space-around">
                     <div class="column-1rem">
                         <h2 class="bold">Player</h2>
-                        <h1>1</h1>
+                        <h1 id="number-player">0</h1>
                     </div>
                     <div class="column-1rem">
                         <h2 class="bold">Computer</h2>
-                        <h1>0</h1>
+                        <h1 id="number-computer">0</h1>
                     </div>
                 </div>
                 <div class="modal-btns">
-                    <button class="modal-btn">Restart</button>
-                    <button class="modal-btn">Continue Game</button>
+                    <button onclick="resetGame()" id="restart" class="modal-btn">Restart</button>
+                    <button onclick="continueGame()" id="continue" class="modal-btn">Continue Game</button>
                 </div>
             </div>
         </div>

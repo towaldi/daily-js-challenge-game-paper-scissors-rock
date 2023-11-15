@@ -7,9 +7,17 @@ const computersChoice = document.querySelector('.computer-choice');
 const playersChoice = document.querySelector('.player-choice');
 const userBtns = document.querySelectorAll('.btn');
 
+const modal = document.querySelector('.modal-bgr');
 const comparisonText = document.getElementById('comparison-text');
+const numberPlayer = document.getElementById('number-player');
+const numberComputer= document.getElementById('number-computer');
 
-let generatedNumber, randomNumber;
+// const resetGameBtn = document.getElementById('reset');
+// const continueGameBtn = document.getElementById('continue');
+
+let text;
+let counterPlayer = 0;
+let counterComputer = 0;
 
 
 /**
@@ -21,11 +29,20 @@ userBtns.forEach(btn => {
 
         const generatedNumber = generateNumberForBtn(btn);
         const randomNumber = generateRandomNumber();
-        
+
+        compareNumbers(generatedNumber, randomNumber)
         playersChoice.innerHTML = /* html */ `<img src="${computerOptions[generatedNumber]}" alt="Player's Choice">`;
         computersChoice.innerHTML = /* html */ `<img src="${computerOptions[randomNumber]}" alt="Computer's Choice">`;
 
-        printComparisonText();
+        comparisonText.innerHTML = text;
+        numberPlayer.innerHTML = counterPlayer;
+        numberComputer.innerHTML = counterComputer;
+        
+        console.log(comparisonText);   
+
+        setTimeout(() => {
+            modal.classList.remove('d-none');
+        }, 1500);
     });
 });
 
@@ -60,28 +77,48 @@ function generateRandomNumber() {
 
 function compareNumbers(num1, num2) {
     if (num1 === 0 && num2 === 1) {
-        return 'Player lost! Paper gets cut by scissors!';
+        text = 'Player lost! Paper gets cut by scissors!';
+        counterComputer++;
     } else if (num1 === 0 && num2 === 2) {
-        return 'Player won! Paper wraps stone!';
+        text = 'Player won! Paper wraps stone!';
+        counterPlayer++;
     } else if (num1 === 1 && num2 === 0) {
-        return 'player won! Scissors cuts paper!';
+        text = 'player won! Scissors cuts paper!';
+        counterPlayer++;
     } else if (num1 === 1 && num2 === 2) {
-        return 'Player lost! Scissors become blunt due to stone!';
+        text = 'Player lost! Scissors become blunt due to stone!';
+        counterComputer++;
     } else if (num1 === 2 && num2 === 0) {
-        return 'Player lost! Stone gets wraped up by paper!';
+        text = 'Player lost! Stone gets wraped up by paper!';
+        counterComputer++;
     } else if (num1 === 2 && num2 === 1) {
-        return 'Player won! Stone blunts scissors!';
+        text = 'Player won! Stone blunts scissors!';
+        counterPlayer++;
     } else if (num1 === num2) {
-        return `That's a tie! Restart game!`;
+        text = `That's a tie! Restart game!`;
     }
 }
 
 
 /**
- * Print 'compareNumbers' return into modal
+ * Reset game
  */
 
-function printComparisonText() {
-    comparisonText.innerHTML = compareNumbers(generatedNumber, randomNumber);
-    console.log(comparisonText);   
+function resetGame() {
+    modal.classList.add('d-none');
+    playersChoice.innerHTML = '';
+    computersChoice.innerHTML = '';
+    counterPlayer = 0;
+    counterComputer = 0;
+}
+
+
+/**
+ * Continue game
+ */
+
+function continueGame() {
+    modal.classList.add('d-none');
+    playersChoice.innerHTML = '';
+    computersChoice.innerHTML = '';
 }
