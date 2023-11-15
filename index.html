@@ -17,7 +17,7 @@
     <main>
         <!-- computer card -->
         <div class="card computer-card">
-            <h2>Computer</h2>
+            <h2 class="bold">Computer</h2>
             <div class="computer-choice">
                 <!-- img of choice -->
             </div>
@@ -30,15 +30,50 @@
 
         <!-- players card -->
         <div class="card player-card">
-            <h2>Player</h2>
+            <h2 class="bold">Player</h2>
             <div class="player-choice">
                 <!-- img of choice -->
             </div>
         </div>
+        <p>Choose between these 3 options:</p>
         <div class="player-options">
-            <button class="btn paper"><img src="./assets/icons/hand_paper.svg" alt="paper"></button>
-            <button class="btn scissors"><img src="./assets/icons/hand_scissors.svg" alt="scissors"></button>
-            <button class="btn rock"><img src="./assets/icons/hand_rock.svg" alt="rock"></button>
+            <div class="column-1rem">
+                <button class="btn paper"><img src="./assets/icons/hand_paper.svg" alt="paper"></button>
+                <p>Paper</p>
+            </div>
+            <div class="column-1rem">
+                <button class="btn scissors"><img src="./assets/icons/hand_scissors.svg" alt="scissors"></button>
+                <p>Scissors</p>
+            </div>
+            <div class="column-1rem">
+                <button class="btn rock"><img src="./assets/icons/hand_rock.svg" alt="rock"></button>
+                <p>Rock</p>
+            </div>
+        </div>
+
+        <!-- modal dialog -->
+        <div class="modal-bgr d-none">
+            <div class="modal-overlay">
+                <div class="modal-header">
+                    <h1>Modal Header</h1>
+                    <p><span id="comparison-text">This is a placeholder</span><br>Here is the scoreboard:</p>
+                </div>
+                <!-- counter -->
+                <div class="row-space-around">
+                    <div class="column-1rem">
+                        <h2 class="bold">Player</h2>
+                        <h1>1</h1>
+                    </div>
+                    <div class="column-1rem">
+                        <h2 class="bold">Computer</h2>
+                        <h1>0</h1>
+                    </div>
+                </div>
+                <div class="modal-btns">
+                    <button class="modal-btn">Restart</button>
+                    <button class="modal-btn">Continue Game</button>
+                </div>
+            </div>
         </div>
     </main>
     <!-- link js -->

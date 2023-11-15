@@ -7,6 +7,10 @@ const computersChoice = document.querySelector('.computer-choice');
 const playersChoice = document.querySelector('.player-choice');
 const userBtns = document.querySelectorAll('.btn');
 
+const comparisonText = document.getElementById('comparison-text');
+
+let generatedNumber, randomNumber;
+
 
 /**
  * Checks which button is clicked by the user
@@ -14,17 +18,14 @@ const userBtns = document.querySelectorAll('.btn');
 
 userBtns.forEach(btn => {
     btn.addEventListener('click', function() {
-        // console.log(btn);
 
         const generatedNumber = generateNumberForBtn(btn);
         const randomNumber = generateRandomNumber();
         
         playersChoice.innerHTML = /* html */ `<img src="${computerOptions[generatedNumber]}" alt="Player's Choice">`;
-        // console.log(generatedNumber);
         computersChoice.innerHTML = /* html */ `<img src="${computerOptions[randomNumber]}" alt="Computer's Choice">`;
-        // console.log(randomNumber);
 
-        console.log(compareNumbers(generatedNumber, randomNumber))
+        printComparisonText();
     });
 });
 
@@ -63,7 +64,7 @@ function compareNumbers(num1, num2) {
     } else if (num1 === 0 && num2 === 2) {
         return 'Player won! Paper wraps stone!';
     } else if (num1 === 1 && num2 === 0) {
-        return 'player won! Scissors cuts paper!'
+        return 'player won! Scissors cuts paper!';
     } else if (num1 === 1 && num2 === 2) {
         return 'Player lost! Scissors become blunt due to stone!';
     } else if (num1 === 2 && num2 === 0) {
@@ -73,4 +74,14 @@ function compareNumbers(num1, num2) {
     } else if (num1 === num2) {
         return `That's a tie! Restart game!`;
     }
+}
+
+
+/**
+ * Print 'compareNumbers' return into modal
+ */
+
+function printComparisonText() {
+    comparisonText.innerHTML = compareNumbers(generatedNumber, randomNumber);
+    console.log(comparisonText);   
 }
